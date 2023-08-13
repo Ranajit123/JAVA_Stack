@@ -5,10 +5,8 @@ public class leetCode496_NextGreaterElement_I{
       int ans[] = new int[nums1.length];
       for(int i =0; i<nums1.length; i++){
         for(int j=nums2.length-1; j>=0; j--){
-          s.push(j);
           if(nums1[i] == nums2[j]){
-            s.pop();
-            while(!s.isEmpty() && nums2[j]>nums2[s.peek()]){
+            while(!s.isEmpty() && nums2[j]>=nums2[s.peek()]){
               s.pop();
             }
             if(s.isEmpty()){
@@ -16,7 +14,8 @@ public class leetCode496_NextGreaterElement_I{
             }else{
               ans[i]=nums2[s.peek()];
             }
-          }    
+          }
+          s.push(j);    
         }
         while(!s.isEmpty()){
           s.pop();
