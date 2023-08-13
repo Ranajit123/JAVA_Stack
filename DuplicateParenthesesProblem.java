@@ -8,7 +8,7 @@ public class DuplicateParenthesesProblem {
       // Closing parentheses
       if(ch == ')'){
         int count = 0;
-        while(s.peek()== '('){
+        while(s.peek() != '('){
           s.pop();
           count++;
         }
@@ -25,7 +25,7 @@ public class DuplicateParenthesesProblem {
     return false;
   }
   public static void main(String[] args) {
-    String str = "(((a+b)+(b+d)))";
+    String str = "((a+b)+(c+d))";
     System.out.println(duplicateParenthese(str));
   }
 }
